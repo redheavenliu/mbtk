@@ -86,7 +86,38 @@ def demo1():
     x.reverse() # 取反
     print x     # ['be', 'to', 'or', 'good']
 
-    
+    # ['good', 'or', 'to', 'be']
+    print (list(reversed(x)))   # reversed 返回 iterator
+
+    x.sort()    # 排序 同 x.sort(cmp)
+    print x     # ['be', 'good', 'or', 'to']
+
+    y = sorted(x)   # sorted有返回
+    print y
+
+    # 默认比较函数（升序）
+    print cmp(3, 2)     # 1
+    print cmp(1, 10)    # -1
+    print cmp(1, 1)     # 0
+
+    x = ['aaaaa', 'bbbb', 'c', 'dd']
+    x.sort(key=len)     # 按长度比较
+    print x     # ['c', 'dd', 'bbbb', 'aaaaa']
+
+    x.sort(reverse=True)    # 逆序排序
+    print x             # ['dd', 'c', 'bbbb', 'aaaaa']
+
+    # 不可变序列 ： 无组
+    a = (1,)    # 不能定义为 （1），这样定义为数字 1
+    print a     # (1,)
+    b = 1,
+    print b     # (1,)
+    c = 3*(21+1,)
+    print c     # (22, 22, 22)
+    d = tuple([1, 2, 3, 4])     # 将其它类型转化为元组
+    print d     # (1, 2, 3, 4)
+    print d[1:3]    # (2, 3)
+
 
 if __name__ == '__main__':
     demo1()
