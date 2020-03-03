@@ -240,10 +240,50 @@ static int main_2(int argc,char **argv)
     return EXIT_SUCCESS;
 }
 
+void sock_read_cb_func(int fd, void *buf, size_t nbytes)
+{
+    printf("Read data[%d]:%s\n",nbytes,buf);
+}
+
+
+#include "mbtk_sock.h"
+int main_3(int argc,char **argv)
+{
+    if(argc != 3) {
+        printf("ARG error.\n");
+        return 0;
+    }
+
+    int fd = mbtk_sock_open(MBTK_SOCK_TYPE_TCP, FALSE, NULL,NULL);
+    if(fd > 0){
+        printf("open success.\n");
+        if(!mbtk_sock_conn(fd, argv[1], atoi(argv[2]))){
+            printf("conn success.\n");
+        } else {
+            printf("conn fail.\n");
+        }
+
+        if(write(fd,"test",4) == 4) {
+            printf("write success.\n");
+        } else {
+            printf("write fail.\n");
+        }
+
+        if(!mbtk_sock_close(fd)) {
+            printf("close success.\n");
+        } else {
+            printf("close fail.\n");
+        }
+    } else {
+        printf("open fail.\n");
+    }
+    return 0;
+}
 
 int main(int argc,char **argv)
 {
 //    return main_1(argc,argv);
-    return main_2(argc,argv);
+//    return main_2(argc,argv);
+    return main_3(argc,argv);
 }
 

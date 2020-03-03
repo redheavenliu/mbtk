@@ -35,6 +35,16 @@ demo_4_1
 
 }
 
+static void
+demo_4_2
+(
+	void
+)
+{
+
+}
+
+
 int
 main
 (

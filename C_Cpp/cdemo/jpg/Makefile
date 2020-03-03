@@ -1,7 +1,7 @@
 ROOT=..
 include $(ROOT)/Make.defines
 
-PROGS =	jpg_demo
+PROGS =	# jpg_demo
 
 all:	$(PROGS)
 
