@@ -98,5 +98,13 @@ log_private
 #define log_d(fmt...) \
         log(LOG_D,##fmt)
 
+#define LOGI log_i
+#define LOGD log_d
+#define LOGE log_e
+#define LOGF log_f
+#define LOGA log_a
+#define LOGW log_w
+#define LOG log
+
 #endif /* M_LOG_H */
 
