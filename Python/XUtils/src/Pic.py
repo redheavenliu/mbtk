@@ -1,3 +1,4 @@
+# coding:utf-8=True
 import os
 import src.PicDownload
 

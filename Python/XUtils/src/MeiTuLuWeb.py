@@ -1,3 +1,4 @@
+# coding:utf-8=True
 from src.BaseWeb import BaseWeb
 
 
