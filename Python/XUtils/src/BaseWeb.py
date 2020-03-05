@@ -32,10 +32,15 @@ class BaseWeb:
                 if line.startswith("start"):
                     start = True
                 continue
+            else:
+                if line.startswith("end"):
+                    start = False
+                    break
 
             if line[0] != '#' and line[0] != '\n':
                 # [id, name, url]
                 self.__package_list.append(line[0:-1].split(','))
+        f_config.close()
 
     def __package_parse(self):
         for page in self.__package_list:
@@ -51,6 +56,9 @@ class BaseWeb:
                 url = self._page_uil_next(page[2], index)
                 print("Parse URL:" + url)
                 text = requests.get(url)
+                if text.status_code != 200:
+                    print("Error code:" + str(text.status_code))
+                    break
                 no_pic = True
                 # print(text.headers)
                 for line in text.iter_lines():

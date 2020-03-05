@@ -5,7 +5,8 @@ from src.ChangShiFang import ChangShiFang
 
 
 def down_meitulu():
-    web = MeiTuLuWeb('MeiTuLu', 'www.meitulu.com', r'G:\Linux\AvManager\url\meitulu')
+    # web = MeiTuLuWeb('MeiTuLu', 'www.meitulu.com', r'G:\Linux\AvManager\url\meitulu')
+    web = MeiTuLuWeb('MeiTuLu', 'www.meitulu.com', r'E:\meitulu')
     web.pic_url_get()
     # web.pic_down()
 
